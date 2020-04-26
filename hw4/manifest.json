@@ -16,14 +16,6 @@
 	"icons" : [{
 			"src": " images.png",
 			"sizes": "150x150"
-		},
-		{
-			"src": "images.png",
-			"sizes": "88x88"
-		},
-		{
-			"src": "images.png",
-			"sizes": "24x24"
 		}],
 	"screenshots" : [],
 	"generated" : ""
