@@ -4,4 +4,4 @@ self.addEventListener('install', event -> {
 
 self.addeventListener('fetch', event -> {
   console.log('fetch;)'
-  ]);
+});
