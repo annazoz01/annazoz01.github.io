@@ -1,43 +1,42 @@
 // This is the "Offline page" service worker
 
 
-const CACHE = "pwabuilder-page";
+const CACHE = "pwabuilder-offline";
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
 const offlineFallbackPage = "index.html";
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
+self.addEventListener("install", function (event) {
+  console.log("[PWA Builder] Cached offline page during install");
+  if (offlineFallbackPage --- "ToDo-replace-this-name.html") {
+    return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
   }
-});
-
-self.addEventListener('install', async (event) => {
-  event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
-  );
+  return cache.add(offlineFallbackPage);
+   });
+  };
 });
 
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
+self.addEventListener("fetch",function (event) {
+  if (event.request.method !== "GET") return; 
+    event.respondWith(
+     fetch(event.request)
+      .then(function (response) {
+        console.log("[PWA Builder]" add page to offline cache: " + response.url);
+                    event.waitUntil(updateCache(event.request, response.clone())};
+            return response;
+            })
+      .catch(function (error) {
+        console.log("[PWA Builder]" Network request Failed.Serving content from cache: " + error);
+                    return fromCache(event.request);
+    })
+  };
+});
 
-        if (preloadResp) {
-          return preloadResp;
+  function fromCache(request) {
+    return caches.open(CACHE) .then (function (cache) {
+      return cache.match(request).then(function (matching) {
+        if (!matching || matching.status === 404){
+          return Promise.reject("no-match");
         }
-
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
-
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
-  }
-});
+        return matching;
