@@ -14,7 +14,7 @@
 	"start_url" : "https://annazoz01.github.io/",
 	"url" : "https://annazoz01.github.io/hw4/index.html",
 	"icons" : [{
-			"src": " images.png",
+			"src": "images.png",
 			"sizes": "150x150"
 		}],
 	"screenshots" : [],
