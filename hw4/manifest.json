@@ -1,19 +1,11 @@
 
 {
-  "short_name": "PWA",
-  "name": "Progressive Web Applicant",
-  "description": "a web application which is deployed on servers,
-  accessible through URLs and indexed by search engines. ",
-  "icons": [
-    {
-      "src": "lightgold.jpg",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-  ],
-  "start_url": "file:///Users/anna/Downloads/workfiles_new/hw4/index.html",
-  "background_color": "#3367D6",
-  "display": "standalone",
+	"short_name" : "PWA ",
+	"name" : "Progressive Web Application",
+	"description" : "is a web application which is deployed on servers, accessible through URLs and indexed by search engines. Using modern possibilities, really special web opportunities can be offered.",
+	"start_url" : "https://annazoz01.github.io/hw4/index.html ",
+	"display" : "standalone",
+	"orientation" : "any",
+	"lang" : "English"
   "scope": "/",
-  "theme_color": "#3367D6"
 }
