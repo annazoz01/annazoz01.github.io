@@ -8,6 +8,7 @@
 	"orientation" : "any",
 	"lang" : "English",
         "theme_color" : "transparent", 
+        "starts_url" : "https://annazoz01.github.io/hw4/index.html",
         "related_applications" : "",
         "prefer_related_applications" : "false",
         "generated" : "true"
