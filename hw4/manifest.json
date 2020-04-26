@@ -1,5 +1,6 @@
 
-{"dir" : "ltr",
+{
+	"dir" : "ltr",
 	"short_name" : "PWA ",
 	"name" : "Progressive Web Application",
 	"scope" : "/",
@@ -7,9 +8,12 @@
 	"display" : "standalone",
 	"orientation" : "any",
 	"lang" : "English",
-        "theme_color" : "transparent", 
-        "starts_url" : "https://annazoz01.github.io/hw4/index.html",
-        "related_applications" : "",
-        "prefer_related_applications" : "false",
-        "generated" : "true"
+	"theme_color" : "transparent",
+	"related_applications" : [],
+	"prefer_related_applications" : false,
+	"start_url" : "https://annazoz01.github.io/",
+	"url" : "https://annazoz01.github.io/hw4/index.html",
+	"icons" : [],
+	"screenshots" : [],
+	"generated" : ""
 }
