@@ -1,11 +1,14 @@
 
-{
+{"dir" : "ltr",
 	"short_name" : "PWA ",
 	"name" : "Progressive Web Application",
-	"description" : "is a web application which is deployed on servers, accessible through URLs and indexed by search engines. Using modern possibilities, really special web opportunities can be offered.",
-	"start_url" : "https://annazoz01.github.io/hw4/index.html ",
+	"scope" : "/",
+	"description" : " ",
 	"display" : "standalone",
 	"orientation" : "any",
-	"lang" : "English"
-  "scope": "/",
+	"lang" : "English",
+        "theme_color" : "transparent", 
+        "related_applications" : "",
+        "prefer_related_applications" : "false",
+        "generated" : "true"
 }
