@@ -8,7 +8,21 @@
   <link rel="stylesheet" type="text/css" href="index.css">
 <link rel='manifest' href='manifest.json'>
 	<script src="pwabuilder-sw.js"></script>
-	<script type="module">import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate ';
+	<script> 
+		if ("serviceWorker" in navigator) {
+			if (navigator.serviceWorker.controller) {
+				console.log( "[PWA Builder] acting service worker foun, no need to register");
+			} else {
+				//Register the service worker
+				navigator.serviceWorker
+				.register("pwabuilder-sw.js", {
+					scope: "./"
+				})
+				.then(function (reg) {
+					console.log("[PWA Builder] Service worker has been register for scope: " + reg.scope);
+				});
+			}
+		}
 		 </script>
 
 <title>Progressive Web Application</title>
