@@ -3,7 +3,7 @@
 	"dir" : "ltr",
 	"short_name" : "PWA ",
 	"name" : "Progressive Web Application",
-	"scope" : "/",
+	"scope" : "PWA",
 	"description" : " ",
 	"display" : "standalone",
 	"orientation" : "any",
