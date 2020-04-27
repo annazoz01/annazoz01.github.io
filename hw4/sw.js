@@ -1,46 +1,27 @@
-function registerServiceWorker() {
-// регистрирует скрипт sw в поддерживаемых браузерах
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js', { scope: '/' }).then(() => {
-      console.log('Service Worker registered successfully.');
-    }).catch(error => {
-      console.log('Service Worker registration failed:', error);
-    });
-  }
-}
 
 // sw.js
-self.addEventListener('install', e => {
+self.addEventListener('install', function(e) {
  e.waitUntil(
-   // после установки service worker
-   // открыть новый кэш
-   caches.open('my-pwa-cache').then(cache => {
-     // добавляем все URL ресурсов, которые хотим закэшировать
+   caches.open('video-store').then(function(cache) {
      return cache.addAll([
-       '/',
-       '/index.html',
-       '/about.html',
-       '/images/doggo.jpg',
-       '/styles/main.min.css',
-       '/scripts/main.min.js',
+       '/pwa-examples/a2hs/',
+       '/pwa-examples/a2hs/index.html',
+       '/pwa-examples/a2hs/index.js',
+       '/pwa-examples/a2hs/style.css',
+       '/pwa-examples/a2hs/images/fox1.jpg',
+       '/pwa-examples/a2hs/images/fox2.jpg',
+       '/pwa-examples/a2hs/images/fox3.jpg',
+       '/pwa-examples/a2hs/images/fox4.jpg'
      ]);
    })
  );
 });
 
-
-import gulp from 'gulp';
-import path from 'path';
-import swPrecache from 'sw-precache';
-
-const rootDir = '/';
-
-gulp.task('generate-service-worker', callback => {
-  swPrecache.write(path.join(rootDir, 'sw.js'), {
-    staticFileGlobs: [
-      // отслеживание и кэширование всех файлов для сравнения с этим шаблоном
-      rootDir + '/**/*.{js,html,css,png,jpg,gif}',
-    ],
-    stripPrefix: rootDir
-  }, callback);
+self.addEventListener('fetch', function(e) {
+  console.log(e.request.url);
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
+    })
+  );
 });
