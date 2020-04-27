@@ -3,6 +3,13 @@ body{
 	text-align: center;
 }
 
+.banner {
+  align-content: center;
+  display: none;
+  justify-content: center;
+  width: 100%;
+}
+
 h2{
 	color: red;
 	font-family: inherit;
