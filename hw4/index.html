@@ -8,6 +8,17 @@
   <link rel="stylesheet" type="text/css" href="index.css">
 <link rel='manifest' href='manifest.json'>
 <script src="sw.js"></script>
+	<script> if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+    .then(registration => {
+      console.log('Service Worker is registered', registration);
+    })
+    .catch(err => {
+      console.error('Registration failed:', err);
+    });
+  });
+}</script>
 
 
 <title>Progressive Web Application</title>
